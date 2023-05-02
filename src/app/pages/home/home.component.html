@@ -3,16 +3,11 @@
 class="min-h-full max-w-7xl max-auto border-x"
 >
   <mat-drawer mode="side" opened class="p-6">
-    <!-- <mat-nav-list>
-      <a mat-list-item routerLink="home">Home</a>
-      <a mat-list-item routerLink="cart">Cart</a>
-    </mat-nav-list> -->
     <div>Filters</div>
+    <app-filters (showCategory)="onShowCategory($event)"></app-filters>
   </mat-drawer>
-  <mat-drawer-content>
-    <div class="p-6">
-      Product Section
-    </div>
-    <app-products-header></app-products-header>
+  <mat-drawer-content class="p-6">
+    <app-products-header (columnCountChange)="onColumnsCountChange($event)">
+    </app-products-header>
   </mat-drawer-content>
 </mat-drawer-container>
