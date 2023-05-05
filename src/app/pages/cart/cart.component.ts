@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
         product: "https://via.placeholder.com/150",
         name: "Snickers",
         price: 150,
-        quantity: 1,
+        quantity: 3,
         id: 2,
       },
     ],
