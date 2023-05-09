@@ -1,9 +1,8 @@
 <mat-card class="max-w-7xl mx-auto" *ngIf="cart.items.length">
 
-  Your cart is not empty.
-
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full">
-
+    
+    <!-- product -->
     <ng-container matColumnDef="product">
       <th mat-header-cell *matHeaderCellDef>Product</th>
       <td mat-cell *matCellDef="let element">
@@ -14,6 +13,7 @@
       </td>
     </ng-container>
 
+    <!-- name -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element">
@@ -22,6 +22,7 @@
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container> 
 
+    <!-- price -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>Price</th>
       <td mat-cell *matCellDef="let element">
@@ -30,6 +31,7 @@
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
+    <!-- quantity -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef>Quantity</th>
       <td mat-cell *matCellDef="let element">
@@ -44,6 +46,7 @@
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
+    <!-- total -->
     <ng-container matColumnDef="total">
       <th mat-header-cell *matHeaderCellDef>Total</th>
       <td mat-cell *matCellDef="let element">
@@ -56,6 +59,7 @@
       </td>
     </ng-container>
 
+    <!-- action -->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>
         <button mat-raised-button color="warn">
@@ -69,7 +73,6 @@
       </td>
       <td mat-footer-cell *matFooterCellDef>
           <button mat-raised-button color="primary">
-            
             Proceed To Checkout
           </button>
       </td>
