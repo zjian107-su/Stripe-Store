@@ -25,6 +25,18 @@ export class CartService {
     this._snackBar.open("Item added to cart", "Close", {
       duration: 3000,
     });
-    console.log(this.cart.value);
+  }
+
+  getTotal(items: Array<CartItem>): number {
+    return items
+      .map((item) => item.price * item.quantity)
+      .reduce((acc, value) => acc + value, 0);
+  }
+
+  clearCart(): void {
+    this.cart.next({ items: [] });
+    this._snackBar.open("Cart cleared", "Ok", {
+      duration: 3000,
+    });
   }
 }
