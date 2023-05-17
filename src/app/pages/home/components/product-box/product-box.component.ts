@@ -18,5 +18,7 @@ export class ProductBoxComponent {
     image: "https://picsum.photos/150",
   };
 
-  onAddToCart() {}
+  onAddToCart(): void {
+    this.addToCart.emit(this.product);
+  }
 }

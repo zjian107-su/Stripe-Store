@@ -21,6 +21,10 @@ export class CartService {
       items.push(item);
     }
 
-    // TODO: Add to cart API call
+    this.cart.next({ items });
+    this._snackBar.open("Item added to cart", "Close", {
+      duration: 3000,
+    });
+    console.log(this.cart.value);
   }
 }
