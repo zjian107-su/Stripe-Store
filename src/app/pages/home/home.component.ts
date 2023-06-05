@@ -13,7 +13,7 @@ const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 export class HomeComponent implements OnInit, OnDestroy {
   cols = 3;
   rowHeight = ROWS_HEIGHT[this.cols];
-  category = "milk";
+  category: string | undefined;
   products: Array<Product> | undefined;
   sort = "desc";
   count = "12";
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getProducts(): void {
     this.productsSubscription = this.storeService
-      .getAllProducts(this.count, this.sort)
+      .getAllProducts(this.count, this.sort, this.category)
       .subscribe((_products) => {
         this.products = _products;
       });
@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onShowCategory(newCategory: string): void {
     this.category = newCategory;
+    this.getProducts();
   }
 
   onAddToCart(product: Product): void {
