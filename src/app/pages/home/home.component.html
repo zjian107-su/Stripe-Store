@@ -7,7 +7,8 @@ class="min-h-full max-w-7xl max-auto border-x"
     <app-filters (showCategory)="onShowCategory($event)"></app-filters>
   </mat-drawer>
   <mat-drawer-content class="p-6">
-    <app-products-header (columnCountChange)="onColumnsCountChange($event)">
+    <app-products-header (columnCountChange)="onColumnsCountChange($event)" (itemsCountChange)="onItemsCountChange($event)"
+      (sortChange)="onSortChange($event)">
     </app-products-header>
     <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
       <mat-grid-tile *ngFor="let product of products">
