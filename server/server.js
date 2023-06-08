@@ -1,3 +1,4 @@
+require("dotenv").config({ path: __dirname + "/../.env" });
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -8,9 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({ origin: true, credentials: true }));
 
-const stripe = require("stripe")(
-  "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"
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 app.post("/checkout", async (req, res) => {
   const { id, amount } = req.body;
